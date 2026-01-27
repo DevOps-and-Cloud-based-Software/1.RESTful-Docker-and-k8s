@@ -13,7 +13,7 @@ More specifically, the steps of this tutorial are the following:
 1. [Write OpenAPI definition using SwaggerHub](#write-openapi-definition)
 2. [Generate the service stubs in Python](#generate-python-code)
 3. [Implement the logic](#implement-the-logic)
-4. [Build Test ands Docker Image](#build-test-and-docker-image) 
+4. [Build and Test Docker Image](#build-test-and-docker-image) 
 5. [Write Tests](#write-tests)
 6. [Deploy Web Service on Kubernetes (MicroK8s)](#deploy-web-service-on-k8s-cluster)
 
@@ -297,8 +297,6 @@ In Pycharm create a package named 'service'. To do that right click on the 'swag
 <img src="/images/pych7.png" alt="swagger" width="300"/>
 
 Inside the service package create a new python file named 'student_service'
-
-Inside the service package create a new python file named 'student_service'
 In the student_service add the following code: [student_service.py](sources/student_service.py)
 
 Now you can add the corresponding methods in the 'default_controller.py'. To do that on the top of the 'default_controller.py' add:
@@ -347,7 +345,7 @@ Now, the 'default_controller.py' just needs to call the service's methods.
 
 ---
 
-# Build Test and Docker Image 
+# Build and Test Docker Image 
 
 You can now build your web service as a Docker image DockerHub. To do that, open the Dockerfile 
 in the Pycharm project.
@@ -371,6 +369,7 @@ docker build --tag <REPO_NAME>/student_service .
 
 If the above command is not working you may need to use sudo.
 Now test the image:
+
 ```
 docker run -it -p 8080:8080 <REPO_NAME>/student_service
 ```
