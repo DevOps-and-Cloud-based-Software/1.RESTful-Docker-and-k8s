@@ -23,4 +23,3 @@ jobs:
         uses: crate-ci/typos@master
         with:
           files: README.md
-          config: ./myconfig.toml
