@@ -84,7 +84,6 @@ You may also find a detailed tutorial on PyCharm here:
 
 # 3. Tasks
 
-
 ## OpenAPI Definition
 In this section, we will define a web service interface that will support the Create, Read, Update, Delete (CRUD) pattern 
 for manipulating resources using OpenAPI. To get a more in-depth understanding of Swagger and OpenAPI you may follow this tutorial 
@@ -362,7 +361,6 @@ FROM python:3.8-alpine
 
 So the Dockerfile will look like this: [Dockerfile](sources/Dockerfile)
 
-
 Open a new terminal in the location of the Dockerfile and type:
 ```
 docker build --tag <REPO_NAME>/student_service .
@@ -441,7 +439,6 @@ To check the tests, you can go to your Github repository and click on 'Actions'.
 The REGISTRY_USERNAME is your **username** for docker hub, NOT your docker hub repository name.
 
 ---
-
 
 
 ## Deploy Web Service on Kubernetes (MicroK8s)
