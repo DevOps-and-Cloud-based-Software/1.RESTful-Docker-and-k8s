@@ -2,7 +2,7 @@
 ## Lab 1-1: RESTful services, Docker and Kubernetes
 University of Amsterdam
 
-# Introduction
+# 1. Introduction
 
 This tutorial will use OpenAPI to define a RESTful web service and Python to implement it. 
 
@@ -44,7 +44,7 @@ You can find a short technical explanation on containerization [here](https://ww
 Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management.
 You can find a short technical explanation on container orchestration [here](https://www.youtube.com/watch?v=kBF6Bvth0zw)
 
-# Tutorial
+# 2. Tutorial
 
 ## Development Environment
 
@@ -82,10 +82,10 @@ sudo snap install PyCharm-community --classic
 You may also find a detailed tutorial on PyCharm here: 
 [https://www.jetbrains.com/help/PyCharm/creating-and-running-your-first-python-project.html](https://www.jetbrains.com/help/PyCharm/creating-and-running-your-first-python-project.html)
 
-## Tasks
+# 3. Tasks
 
 
-### OpenAPI Definition
+## OpenAPI Definition
 In this section, we will define a web service interface that will support the Create, Read, Update, Delete (CRUD) pattern 
 for manipulating resources using OpenAPI. To get a more in-depth understanding of Swagger and OpenAPI you may follow this tutorial 
 [https://idratherbewriting.com/learnapidoc/openapi_tutorial.html](https://idratherbewriting.com/learnapidoc/openapi_tutorial.html)
@@ -118,7 +118,7 @@ Effectively, what is said here is that the "#/components/schemas/Student" is not
 You can find more about '$refs' here: [https://swagger.io/docs/specification/using-ref/](https://swagger.io/docs/specification/using-ref/)
 
 
-### Define Objects
+## Define Objects
 Scroll down to the bottom of the page and create the following nodes:
 * components
   * schemas
@@ -180,7 +180,7 @@ It is helpful to add 'example' fields in the properties. That way, your API is e
 You can find details about the 'example' field here: [https://swagger.io/docs/specification/adding-examples/](https://swagger.io/docs/specification/adding-examples/)
 You can find details about data models here: [https://swagger.io/docs/specification/data-models/](https://swagger.io/docs/specification/data-models/)
 
-### Add Delete method
+## Add Delete method
 
 At the moment, the API definition only has 'GET' and 'POST' methods. We will add a 'DELETE' 
 method. Under the '/student/{student_id}' path add the following:
@@ -208,7 +208,7 @@ method. Under the '/student/{student_id}' path add the following:
 ```
 You will need to fill in the proper responses for 200, 400, and 404. More information about responses can be found here: [https://swagger.io/docs/specification/describing-responses/](https://swagger.io/docs/specification/describing-responses/)
 
-### Generate Python Code
+## Generate Python Code
 
 Now that we have the OpenAPI definitions, we can create the server stub on Python. Select 'Codegen'->'Server Stub'->
 'python-flask'
@@ -271,7 +271,7 @@ In PyCharm if you open the 'default_controller.py' file, you'll see that the met
 ---
 
 
-### Git Repository 
+## Git Repository
 Create a private git repository. 
 
 ---
@@ -292,7 +292,7 @@ git remote add origin <REPOSETORY_URL>
 git push -u origin main
 ```
 
-### Implement the logic
+## Implement the logic
 
 In PyCharm create a package named 'service'. To do that right click on the 'swagger_server' package select 'New'->
 'Python Package' and enter the name 'service'
@@ -348,7 +348,7 @@ Now, the 'default_controller.py' just needs to call the service's methods.
 
 ---
 
-### Docker Image 
+## Docker Image 
 
 You can now build your web service as a Docker image DockerHub. To do that, open the Dockerfile 
 in the PyCharm project and change the python version from:
@@ -387,7 +387,7 @@ docker run -it -p 8080:8080 <REPO_NAME>/student_service
 ---
 
 
-### MongoDB Integration
+## MongoDB Integration
 
 
 The code provided above uses an internal database called TinyDB. Change the code so that your service saves data in a mongoDB. 
@@ -403,7 +403,7 @@ For testing your code locally use this file: [docker-compose.yaml](sources/docke
 
 ---
 
-### Write Tests
+## Write Tests
 
 Before writing the tests in Github you need to create a token in Docker hub. To do that follow these instructions: [https://docs.docker.com/docker-hub/access-tokens/](https://docs.docker.com/docker-hub/access-tokens/)
 Next you need to add your Docker hub and token to your Github project secrets.
