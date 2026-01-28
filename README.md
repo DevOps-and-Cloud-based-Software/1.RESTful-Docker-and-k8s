@@ -124,6 +124,7 @@ Scroll down to the bottom of the page and create the following nodes:
     * Student
     * GradeRecord
 
+
 The code should look like this:
 ```yaml
 components:
