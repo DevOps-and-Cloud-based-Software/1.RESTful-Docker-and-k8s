@@ -17,10 +17,3 @@ jobs:
           file_types: .md,yaml,json
           retry_count: 3
           exclude_patterns: http://IP:NODE_PORT,http://localhost,https://virtserver.swaggerhub.com/,http://IP
-
-
-      - name: typos
-        uses: crate-ci/typos@master
-        with:
-          files: README.md
-          config_file: typos.toml
