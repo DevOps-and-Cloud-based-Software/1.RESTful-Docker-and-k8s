@@ -1,0 +1,4 @@
+[default]
+extend-ignore-identifiers-re = [
+    "ERRO\[0001\] error wait,",
+]

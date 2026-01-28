@@ -23,4 +23,4 @@ jobs:
         uses: crate-ci/typos@master
         with:
           files: README.md
-          args: --ignore "ERRO[0001]"
+          config_file: typos.toml
