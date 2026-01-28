@@ -73,14 +73,14 @@ You can find instructions on how to install Docker Compose here: [https://docs.d
 In this tutorial, we will use the PyCharm Integrated Development Environment (IDE). If you have a
 preferred IDE you are free to use it.
 
-You can find instructions on how to install PyCharm here: [https://www.jetbrains.com/PyCharm/download/](https://www.jetbrains.com/PyCharm/download/)
+You can find instructions on how to install PyCharm here: [https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/)
 
 If you are using snap, you can type:
 ```shell
 sudo snap install PyCharm-community --classic
 ```
 You may also find a detailed tutorial on PyCharm here: 
-[https://www.jetbrains.com/help/PyCharm/creating-and-running-your-first-python-project.html](https://www.jetbrains.com/help/PyCharm/creating-and-running-your-first-python-project.html)
+[https://www.jetbrains.com/help/pycharm/creating-and-running-your-first-python-project.html](https://www.jetbrains.com/help/pycharm/creating-and-running-your-first-python-project.html)
 
 # 3. Tasks
 
