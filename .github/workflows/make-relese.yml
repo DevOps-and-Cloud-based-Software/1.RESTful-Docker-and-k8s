@@ -36,8 +36,6 @@ jobs:
         with:
           sources: 'README_WITH_LINKS.md'
 
-
-
       - name: Upload Document
         uses: actions/upload-artifact@v4
         id: upload-document
