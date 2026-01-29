@@ -17,8 +17,6 @@ More specifically, the steps of this tutorial are the following:
 5. [Write Tests](#write-tests)
 6. [Deploy Web Service on Kubernetes (MicroK8s)](#deploy-web-service-on-k8s-cluster)
 
-## Background
-
 * Swagger is an implementation of OpenAPI. Swagger contains a tool that helps developers design, build, document, and consume RESTful Web services.
 Applications implemented based on OpenAPI interface files can automatically generate documentation of methods, parameters, and models. This helps keep the documentation, client
 libraries, and source code in sync.
@@ -40,37 +38,31 @@ You can find a short technical explanation on container orchestration [here](htt
 
 # 2. Tutorial
 
-## Development Environment
+* **Create GitHub Account**: In case you don’t have a GitHub account, follow these instructions to create one: [https://github.com/join](https://github.com/join)
 
-* Create GitHub Account: In case you don’t have a GitHub account, follow these instructions to create one: [https://github.com/join](https://github.com/join)
+* **Setup Docker Hub**: In case you don't have a Dock Hub account, follow these instructions to create one: [https://hub.docker.com/signup](https://hub.docker.com/signup)
 
-* Setup Docker Hub: In case you don't have a Dock Hub account, follow these instructions to create one: [https://hub.docker.com/signup](https://hub.docker.com/signup)
-
-* SwaggerHub Account: If you have a GitHub account, you may go to [https://app.SwaggerHub.com/login](https://app.SwaggerHub.com/login) 
+* **SwaggerHub Account:** If you have a GitHub account, you may go to [https://app.SwaggerHub.com/login](https://app.SwaggerHub.com/login) 
 and select 'Log In with GitHub'. Alternatively, you can select to sign up.
 
-* Docker and Docker Compose: You can find instructions on how to install Docker here: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+* **Docker and Docker Compose:** You can find instructions on how to install Docker here: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 You may also find a detailed tutorial on Docker here: [https://docker-curriculum.com/](https://docker-curriculum.com/). To test if your installation is running, you may test docker by typing:
     ```shell
     docker run hello-world
     ```
-You can find instructions on how to install Docker Compose here: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/) 
+  You can find instructions on how to install Docker Compose here: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/) 
 
-### Install PyCharm 
+* **PyCharm:** In this tutorial, we will use the PyCharm Integrated Development Environment (IDE). If you have a
+preferred IDE you are free to use it. You can find instructions on how to install PyCharm here: [https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/)
 
-In this tutorial, we will use the PyCharm Integrated Development Environment (IDE). If you have a
-preferred IDE you are free to use it.
+    If you are using snap, you can type:
+    ```shell
+    sudo snap install PyCharm-community --classic
+    ```
+    You may also find a detailed tutorial on PyCharm here: 
+    [https://www.jetbrains.com/help/pycharm/creating-and-running-your-first-python-project.html](https://www.jetbrains.com/help/pycharm/creating-and-running-your-first-python-project.html)
 
-You can find instructions on how to install PyCharm here: [https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/)
 
-If you are using snap, you can type:
-```shell
-sudo snap install PyCharm-community --classic
-```
-You may also find a detailed tutorial on PyCharm here: 
-[https://www.jetbrains.com/help/pycharm/creating-and-running-your-first-python-project.html](https://www.jetbrains.com/help/pycharm/creating-and-running-your-first-python-project.html)
-
-# 3. Tasks
 
 ## OpenAPI Definition
 In this section, we will define a web service interface that will support the Create, Read, Update, Delete (CRUD) pattern 
@@ -595,3 +587,11 @@ Note that in this output, 'service/service' is mapped to 30726. In your case, it
 
 Now your service should be available on http://IP:NODE_PORT/
 
+
+# 3. Questions
+
+1. Explain the benefits of layered architecture in this project and which layers you implemented.
+2. Explain how OpenAPI helped you in the development of the RESTful web service.
+3. In which case the use of TinyDB is preferred over MongoDB and vice versa?
+4. Explain the benefits of using Docker.
+5. Explain the benefits of using Kubernetes.
