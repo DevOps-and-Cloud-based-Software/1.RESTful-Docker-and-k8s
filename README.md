@@ -5,18 +5,8 @@ RESTful services, Docker and Kubernetes
 
 # 1. Introduction
 
-This tutorial will use OpenAPI to define a RESTful web service and Python to implement it. 
-
-The RESTful web service will use a database to store data.
-
-More specifically, the steps of this tutorial are the following: 
-
-1. [Write OpenAPI definition using SwaggerHub](#write-openapi-definition)
-2. [Generate the service stubs in Python](#generate-python-code)
-3. [Implement the logic](#implement-the-logic)
-4. [Build and Test Docker Image](#build-test-and-docker-image) 
-5. [Write Tests](#write-tests)
-6. [Deploy Web Service on Kubernetes (MicroK8s)](#deploy-web-service-on-k8s-cluster)
+This tutorial will use OpenAPI to define a RESTful web service and Python to 
+implement it. The RESTful web service will use a database to store data.
 
 * Swagger is an implementation of OpenAPI. Swagger contains a tool that helps developers design, build, document, and consume RESTful Web services.
 Applications implemented based on OpenAPI interface files can automatically generate documentation of methods, parameters, and models. This helps keep the documentation, client
@@ -39,6 +29,21 @@ You can find a short technical explanation on container orchestration [here](htt
 
 # 2. Tutorial
 
+
+The steps of this tutorial are the following: 
+
+1. [Write OpenAPI definition using SwaggerHub](#22-openapi-definition)  
+2. [Generate the service stubs in Python](#25-generate-python-code)  
+3. [Implement the logic](#26-implement-the-logic)  
+4. [Build and Test Docker Image](#27-docker-image)
+5. [Write Tests](#28-testing)  
+6. [Deploy Web Service on Kubernetes](#29-deploy-web-service-on-kubernetes)
+7. [Hands-on Exercises](#3-hands-on-exercise)
+8. [Questions](#4-questions)
+
+
+
+## 2.1 Prerequisites
 * **Create GitHub Account**: In case you don’t have a GitHub account, follow these instructions to create one: [https://github.com/join](https://github.com/join)
 
 * **Setup Docker Hub**: In case you don't have a Dock Hub account, follow these instructions to create one: [https://hub.docker.com/signup](https://hub.docker.com/signup)
@@ -65,7 +70,7 @@ preferred IDE you are free to use it. You can find instructions on how to instal
 
 
 
-## OpenAPI Definition
+## 2.2 OpenAPI Definition
 In this section, we will define a web service interface that will support the Create, Read, Update, Delete (CRUD) pattern 
 for manipulating resources using OpenAPI. To get a more in-depth understanding of Swagger and OpenAPI you may follow this tutorial 
 [https://idratherbewriting.com/learnapidoc/openapi_tutorial.html](https://idratherbewriting.com/learnapidoc/openapi_tutorial.html)
@@ -98,7 +103,7 @@ Effectively, what is said here is that the "#/components/schemas/Student" is not
 You can find more about '$refs' here: [https://swagger.io/docs/specification/using-ref/](https://swagger.io/docs/specification/using-ref/)
 
 
-## Define Objects
+## 2.3 Define Objects
 Scroll down to the bottom of the page and create the following nodes:
 * components
   * schemas
@@ -161,7 +166,7 @@ It is helpful to add 'example' fields in the properties. That way, your API is e
 You can find details about the 'example' field here: [https://swagger.io/docs/specification/adding-examples/](https://swagger.io/docs/specification/adding-examples/)
 You can find details about data models here: [https://swagger.io/docs/specification/data-models/](https://swagger.io/docs/specification/data-models/)
 
-## Add Delete method
+## 2.4 Add Delete method
 
 At the moment, the API definition only has 'GET' and 'POST' methods. We will add a 'DELETE' 
 method. Under the '/student/{student_id}' path add the following:
@@ -189,7 +194,7 @@ method. Under the '/student/{student_id}' path add the following:
 ```
 You will need to fill in the proper responses for 200, 400, and 404. More information about responses can be found here: [https://swagger.io/docs/specification/describing-responses/](https://swagger.io/docs/specification/describing-responses/)
 
-## Generate Python Code
+## 2.5 Generate Python Code
 
 Now that we have the OpenAPI definitions, we can create the server stub on Python. Select 'Codegen'->'Server Stub'->
 'python-flask'
@@ -252,7 +257,7 @@ In PyCharm if you open the 'default_controller.py' file, you'll see that the met
 ---
 
 
-## Git Repository
+## 2.5 Git Repository
 Create a private git repository. 
 
 ---
@@ -273,7 +278,7 @@ git remote add origin <REPOSETORY_URL>
 git push -u origin main
 ```
 
-## Implement the logic
+## 2.6 Implement the logic
 
 In PyCharm create a package named 'service'. To do that right click on the 'swagger_server' package select 'New'->
 'Python Package' and enter the name 'service'
@@ -329,7 +334,7 @@ Now, the 'default_controller.py' just needs to call the service's methods.
 
 ---
 
-## Docker Image 
+## 2.7 Docker Image 
 
 You can now build your web service as a Docker image DockerHub. To do that, open the Dockerfile 
 in the PyCharm project and change the python version from:
@@ -366,24 +371,7 @@ docker run -it -p 8080:8080 <REPO_NAME>/student_service
 
 ---
 
-
-## MongoDB Integration
-
-
-The code provided above uses an internal database called TinyDB. Change the code so that your service saves data in a mongoDB. 
-This includes configuration files for the database endpoint, database names, the Dockerfile itself etc.
-For testing your code locally use this file: [docker-compose.yaml](sources/docker-compose.yaml). Make sure you replace the image with your own.
-
----
-
- **NOTE**
-
- The docker-compose.yaml file above will be also used to run the postman tests.  
- If you need to install Docker Compose you can follow the instructions here: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/) .
-
----
-
-## Write Tests
+## 2.8 Testing
 
 Before writing the tests in Github you need to create a token in Docker hub. To do that follow these instructions: [https://docs.docker.com/docker-hub/access-tokens/](https://docs.docker.com/docker-hub/access-tokens/)
 Next you need to add your Docker hub and token to your Github project secrets.
@@ -423,9 +411,19 @@ The REGISTRY_USERNAME is your **username** for docker hub, NOT your docker hub r
 ---
 
 
-## Deploy Web Service on Kubernetes (MicroK8s)
+## 2.9 Deploy Web Service on Kubernetes 
 
-### Install MicroK8s 
+To deploy the web service on a Kubernetes (K8s) cluster you may use Minikube or MicroK8s. 
+
+### 2.9.0 Minikube
+You can find Minikube installation instructions: 
+[https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/). 
+After you complete the installation, make sure you start Minikube by typing:
+```shell
+minikube start --addons=ingress,ingress-dns,metrics-server
+```
+
+### 2.9.1 MicroK8s 
 
 You can find MicroK8s installation instructions: [https://MicroK8s.io/](https://MicroK8s.io/)
 
@@ -459,7 +457,7 @@ microk8s enable dns
 ---
 
 
-### Test K8s Cluster
+## 2.10 Test K8s Cluster
 
 This is a basic Kubernetes deployment of Nginx. On the master node, create a Nginx deployment:
 ```shell
@@ -538,7 +536,7 @@ You may now delete the Nginx service by using:
 microk8s kubectl delete service/nginx
 ```
 
-### Deploy Web Service on K8s Cluster
+## 2.11 Deploy Web Service on K8s Cluster
 
 To deploy a RESTful Web Service on the K8s Cluster create a folder named
 'service' and add this file in the folder:
@@ -589,10 +587,40 @@ Note that in this output, 'service/service' is mapped to 30726. In your case, it
 Now your service should be available on http://IP:NODE_PORT/
 
 
-# 3. Questions
+# 3. Exercises 
 
-1. Explain the benefits of layered architecture in this project and which layers you implemented.
-2. Explain how OpenAPI helped you in the development of the RESTful web service.
-3. In which case the use of TinyDB is preferred over MongoDB and vice versa?
-4. Explain the benefits of using Docker.
-5. Explain the benefits of using Kubernetes.
+## 3.1 MongoDB Integration
+
+The code provided above uses an internal database called TinyDB. Change the 
+code so that your service saves data in a mongoDB. This includes configuration 
+files for the database endpoint, database names, the Dockerfile itself etc.
+For testing your code locally use this file: 
+[docker-compose.yaml](sources/docker-compose.yaml). Make sure you replace the 
+image with your own.
+
+---
+
+ **NOTE**
+
+ The docker-compose.yaml file above will be also used to run the postman tests.  
+ If you need to install Docker Compose you can follow the instructions here: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/) .
+
+---
+
+## 3.2 Add New Method
+
+Add a new method to the web service that will return the average grade of a student.
+The new method should be a GET method with the following path:
+
+```
+/student/{student_id}/average_grade
+```
+
+The method should return the average grade of the student with id 'student_id'.
+The method should return a 404 error if the student does not exist or if the student has no grades.
+Add the new method to the OpenAPI definition, implement the logic, and test it.
+
+# 3.3 Questions
+
+1. Explain how OpenAPI helped you in the development of the RESTful web service.
+2. In which case the use of TinyDB is preferred over MongoDB and vice versa?
