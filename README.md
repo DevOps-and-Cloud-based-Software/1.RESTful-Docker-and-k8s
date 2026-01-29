@@ -587,7 +587,7 @@ Note that in this output, 'service/service' is mapped to 30726. In your case, it
 Now your service should be available on http://IP:NODE_PORT/
 
 
-# 3. Hands-on Exercise 
+# 3. Exercises 
 
 ## 3.1 MongoDB Integration
 
@@ -620,7 +620,7 @@ The method should return the average grade of the student with id 'student_id'.
 The method should return a 404 error if the student does not exist or if the student has no grades.
 Add the new method to the OpenAPI definition, implement the logic, and test it.
 
-# 4. Questions
+# 3.3 Questions
 
 1. Explain how OpenAPI helped you in the development of the RESTful web service.
-2In which case the use of TinyDB is preferred over MongoDB and vice versa?
+2. In which case the use of TinyDB is preferred over MongoDB and vice versa?
