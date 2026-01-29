@@ -2,7 +2,7 @@
 ## Lab 1-1: RESTful services, Docker and Kubernetes
 University of Amsterdam
 
-# Introduction
+# 1. Introduction
 
 This tutorial will use OpenAPI to define a RESTful web service and Python to implement it. 
 
@@ -13,11 +13,11 @@ More specifically, the steps of this tutorial are the following:
 1. [Write OpenAPI definition using SwaggerHub](#write-openapi-definition)
 2. [Generate the service stubs in Python](#generate-python-code)
 3. [Implement the logic](#implement-the-logic)
-4. [Build Test ands Docker Image](#build-test-and-docker-image) 
+4. [Build and Test Docker Image](#build-test-and-docker-image) 
 5. [Write Tests](#write-tests)
 6. [Deploy Web Service on Kubernetes (MicroK8s)](#deploy-web-service-on-k8s-cluster)
 
-# Background
+## Background
 
 * Swagger is an implementation of OpenAPI. Swagger contains a tool that helps developers design, build, document, and consume RESTful Web services.
 Applications implemented based on OpenAPI interface files can automatically generate documentation of methods, parameters, and models. This helps keep the documentation, client
@@ -38,8 +38,9 @@ You can find a short technical explanation on containerization [here](https://ww
 * Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management.
 You can find a short technical explanation on container orchestration [here](https://www.youtube.com/watch?v=kBF6Bvth0zw)
 
+# 2. Tutorial
 
-# Prepare your Development Environment 
+## Development Environment
 
 * Create GitHub Account: In case you don’t have a GitHub account, follow these instructions to create one: [https://github.com/join](https://github.com/join)
 
@@ -55,21 +56,23 @@ You may also find a detailed tutorial on Docker here: [https://docker-curriculum
     ```
 You can find instructions on how to install Docker Compose here: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/) 
 
-## Install Pycharm 
+### Install PyCharm 
 
-In this tutorial, we will use the Pycharm Integrated Development Environment (IDE). If you have a
+In this tutorial, we will use the PyCharm Integrated Development Environment (IDE). If you have a
 preferred IDE you are free to use it.
 
-You can find instructions on how to install Pycharm here: [https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/)
+You can find instructions on how to install PyCharm here: [https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/)
 
 If you are using snap, you can type:
 ```shell
-sudo snap install pycharm-community --classic
+sudo snap install PyCharm-community --classic
 ```
-You may also find a detailed tutorial on Pycharm here: 
+You may also find a detailed tutorial on PyCharm here: 
 [https://www.jetbrains.com/help/pycharm/creating-and-running-your-first-python-project.html](https://www.jetbrains.com/help/pycharm/creating-and-running-your-first-python-project.html)
 
-# Write OpenAPI Definition
+# 3. Tasks
+
+## OpenAPI Definition
 In this section, we will define a web service interface that will support the Create, Read, Update, Delete (CRUD) pattern 
 for manipulating resources using OpenAPI. To get a more in-depth understanding of Swagger and OpenAPI you may follow this tutorial 
 [https://idratherbewriting.com/learnapidoc/openapi_tutorial.html](https://idratherbewriting.com/learnapidoc/openapi_tutorial.html)
@@ -101,14 +104,14 @@ $refs must reference a valid location in the document
 Effectively, what is said here is that the "#/components/schemas/Student" is not defined. 
 You can find more about '$refs' here: [https://swagger.io/docs/specification/using-ref/](https://swagger.io/docs/specification/using-ref/)
 
-## OpenAPI Exercises
 
-### Define Objects
+## Define Objects
 Scroll down to the bottom of the page and create the following nodes:
 * components
   * schemas
     * Student
     * GradeRecord
+
 
 The code should look like this:
 ```yaml
@@ -165,7 +168,7 @@ It is helpful to add 'example' fields in the properties. That way, your API is e
 You can find details about the 'example' field here: [https://swagger.io/docs/specification/adding-examples/](https://swagger.io/docs/specification/adding-examples/)
 You can find details about data models here: [https://swagger.io/docs/specification/data-models/](https://swagger.io/docs/specification/data-models/)
 
-### Add Delete method
+## Add Delete method
 
 At the moment, the API definition only has 'GET' and 'POST' methods. We will add a 'DELETE' 
 method. Under the '/student/{student_id}' path add the following:
@@ -192,6 +195,7 @@ method. Under the '/student/{student_id}' path add the following:
           
 ```
 You will need to fill in the proper responses for 200, 400, and 404. More information about responses can be found here: [https://swagger.io/docs/specification/describing-responses/](https://swagger.io/docs/specification/describing-responses/)
+
 ## Generate Python Code
 
 Now that we have the OpenAPI definitions, we can create the server stub on Python. Select 'Codegen'->'Server Stub'->
@@ -200,12 +204,12 @@ Now that we have the OpenAPI definitions, we can create the server stub on Pytho
 <img src="/images/swgub6.png" alt="swagger" width="800"/>
 
 
-Save the 'python-flask-server-generated.zip' and unzip the archive. Open Pycharm and open the project.
+Save the 'python-flask-server-generated.zip' and unzip the archive. Open PyCharm and open the project.
 
 <img src="/images/pych1.png" alt="swagger" width="800"/>
 
 
-To create the virtual environment for the project, go to 'File'->'Settings'->'Project'->'Python Interpreter' or ‘Pycharm'->'Preferences'->Project'->'Python Interpreter'. Select Python version 3.8 or later. Then select the gear icon to add a new environment:
+To create the virtual environment for the project, go to 'File'->'Settings'->'Project'->'Python Interpreter' or ‘PyCharm'->'Preferences'->Project'->'Python Interpreter'. Select Python version 3.8 or later. Then select the gear icon to add a new environment:
 
 <img src="/images/pych2.png" alt="swagger" width="800"/>
 
@@ -243,7 +247,7 @@ On the UI select 'POST' and 'Try it out':
 
 
 The response body should be: "do some magic!"
-In Pycharm if you open the 'default_controller.py' file, you'll see that the method 'add_student' returns the string "do some magic!".
+In PyCharm if you open the 'default_controller.py' file, you'll see that the method 'add_student' returns the string "do some magic!".
 
 
 ---
@@ -255,7 +259,7 @@ In Pycharm if you open the 'default_controller.py' file, you'll see that the met
 ---
 
 
-## Create Git Repository and Commit the Code
+## Git Repository
 Create a private git repository. 
 
 ---
@@ -276,14 +280,12 @@ git remote add origin <REPOSETORY_URL>
 git push -u origin main
 ```
 
-### Implement the logic
+## Implement the logic
 
-In Pycharm create a package named 'service'. To do that right click on the 'swagger_server' package select 'New'->
+In PyCharm create a package named 'service'. To do that right click on the 'swagger_server' package select 'New'->
 'Python Package' and enter the name 'service'
 
 <img src="/images/pych7.png" alt="swagger" width="300"/>
-
-Inside the service package create a new python file named 'student_service'
 
 Inside the service package create a new python file named 'student_service'
 In the student_service add the following code: [student_service.py](sources/student_service.py)
@@ -334,12 +336,10 @@ Now, the 'default_controller.py' just needs to call the service's methods.
 
 ---
 
-# Build Test and Docker Image 
+## Docker Image 
 
 You can now build your web service as a Docker image DockerHub. To do that, open the Dockerfile 
-in the Pycharm project.
-
-and update the python version from:
+in the PyCharm project and change the python version from:
 ```Dockerfile
 FROM python:3.9-alpine
 ```
@@ -350,7 +350,6 @@ FROM python:3.8-alpine
 
 So the Dockerfile will look like this: [Dockerfile](sources/Dockerfile)
 
-
 Open a new terminal in the location of the Dockerfile and type:
 ```
 docker build --tag <REPO_NAME>/student_service .
@@ -358,6 +357,7 @@ docker build --tag <REPO_NAME>/student_service .
 
 If the above command is not working you may need to use sudo.
 Now test the image:
+
 ```
 docker run -it -p 8080:8080 <REPO_NAME>/student_service
 ```
@@ -430,10 +430,9 @@ The REGISTRY_USERNAME is your **username** for docker hub, NOT your docker hub r
 ---
 
 
+## Deploy Web Service on Kubernetes (MicroK8s)
 
-# Deploy Web Service on Kubernetes (MicroK8s)
-
-## Install MicroK8s 
+### Install MicroK8s 
 
 You can find MicroK8s installation instructions: [https://MicroK8s.io/](https://MicroK8s.io/)
 
@@ -467,7 +466,7 @@ microk8s enable dns
 ---
 
 
-## Test K8s Cluster
+### Test K8s Cluster
 
 This is a basic Kubernetes deployment of Nginx. On the master node, create a Nginx deployment:
 ```shell
@@ -541,14 +540,12 @@ This means that port 80 is mapped on port 31119 of each node in the K8s cluster.
 
 ---
 
-
-
 You may now delete the Nginx service by using:
 ```shell
 microk8s kubectl delete service/nginx
 ```
 
-## Deploy Web Service on K8s Cluster
+### Deploy Web Service on K8s Cluster
 
 To deploy a RESTful Web Service on the K8s Cluster create a folder named
 'service' and add this file in the folder:

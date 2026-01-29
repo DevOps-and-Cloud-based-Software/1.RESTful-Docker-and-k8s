@@ -6,7 +6,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Test URLs
+    name: Test Links and Typos
     steps:
       - name: Checkout
         uses: actions/checkout@v3
