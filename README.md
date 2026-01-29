@@ -19,53 +19,40 @@ More specifically, the steps of this tutorial are the following:
 
 # Background
 
-## OpenAPI and Swagger
-Swagger is an implementation of OpenAPI. Swagger contains a tool that helps developers design, build, document, and consume RESTful Web services.
+* Swagger is an implementation of OpenAPI. Swagger contains a tool that helps developers design, build, document, and consume RESTful Web services.
 Applications implemented based on OpenAPI interface files can automatically generate documentation of methods, parameters, and models. This helps keep the documentation, client
 libraries, and source code in sync.
 You can find a short technical explanation [here](https://www.youtube.com/watch?v=pRS9LRBgjYg)
 
-## Git
-Git is an open-source distributed version control system. Version control helps keep track of changes in a project and allows for collaboration between many developers.
+* Git is an open-source distributed version control system. Version control helps keep track of changes in a project and allows for collaboration between many developers.
 You can find a short technical explanation [here](https://www.youtube.com/watch?v=wpISo9TNjfU)
 
-## GitHub Actions 
-GitHub Actions automates your software development workflows from within GitHub. In GitHub Actions, a workflow is an automated process that you set up in your GitHub
+* GitHub Actions automates your software development workflows from within GitHub. In GitHub Actions, a workflow is an automated process that you set up in your GitHub
 repository. You can build, test, package, release, or deploy any project on GitHub as a workflow.
 
-## Docker
-
-Docker performs operating-system-level virtualization, also known as "containerization". Docker uses the resource isolation features of the Linux kernel to allow independent
+* Docker performs operating-system-level virtualization, also known as "containerization". Docker uses the resource isolation features of the Linux kernel to allow independent
 "containers" to run within a Linux instance.
 You can find a short technical explanation on containerization [here](https://www.youtube.com/watch?v=0qotVMX-J5s)
 
 
-## Kubernetes (MicroK8s)
-Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management.
+* Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management.
 You can find a short technical explanation on container orchestration [here](https://www.youtube.com/watch?v=kBF6Bvth0zw)
 
 
 # Prepare your Development Environment 
 
-## Create GitHub Account
-In case you don’t have a GitHub account, follow these instructions to create one: [https://github.com/join](https://github.com/join)
+* Create GitHub Account: In case you don’t have a GitHub account, follow these instructions to create one: [https://github.com/join](https://github.com/join)
 
-## Setup Docker Hub
-In case you don't have a Dock Hub account, follow these instructions to create one: [https://hub.docker.com/signup](https://hub.docker.com/signup)
+* Setup Docker Hub: In case you don't have a Dock Hub account, follow these instructions to create one: [https://hub.docker.com/signup](https://hub.docker.com/signup)
 
-## SwaggerHub Account
-
-If you have a GitHub account, you may go to [https://app.SwaggerHub.com/login](https://app.SwaggerHub.com/login) 
+* SwaggerHub Account: If you have a GitHub account, you may go to [https://app.SwaggerHub.com/login](https://app.SwaggerHub.com/login) 
 and select 'Log In with GitHub'. Alternatively, you can select to sign up.
 
-## Install Docker and Docker Compose on your Local machine
-You can find instructions on how to install Docker here: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
-You may also find a detailed tutorial on Docker here: [https://docker-curriculum.com/](https://docker-curriculum.com/)
-
-To test if your installation is running, you may test docker by typing:
-```shell
-docker run hello-world
-```
+* Docker and Docker Compose: You can find instructions on how to install Docker here: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+You may also find a detailed tutorial on Docker here: [https://docker-curriculum.com/](https://docker-curriculum.com/). To test if your installation is running, you may test docker by typing:
+    ```shell
+    docker run hello-world
+    ```
 You can find instructions on how to install Docker Compose here: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/) 
 
 ## Install Pycharm 
