@@ -1,6 +1,7 @@
-# DevOps and Cloud Based Software  
-## Lab 1-1: RESTful services, Docker and Kubernetes
-University of Amsterdam
+RESTful services, Docker and Kubernetes
+==============
+
+***University of Amsterdam***
 
 # 1. Introduction
 
