@@ -5,11 +5,10 @@ RESTful services, Docker and Kubernetes
 
 # 1. Introduction
 
-This tutorial will use OpenAPI to define a RESTful web service and Python to 
-implement it. The RESTful web service will use a database to store data.
+This tutorial uses OpenAPI to define a RESTful web service and Python to implement it. The RESTful web service uses a database to store data.
 
-* Swagger is an implementation of OpenAPI. Swagger contains a tool that helps developers design, build, document, and consume RESTful Web services.
-Applications implemented based on OpenAPI interface files can automatically generate documentation of methods, parameters, and models. This helps keep the documentation, client
+* Swagger is an implementation of OpenAPI. Swagger provides tools that help developers design, build, document, and consume RESTful web services.
+Applications implemented from OpenAPI interface files can automatically generate documentation for endpoints, parameters, and data models. This helps keep the documentation, client
 libraries, and source code in sync.
 You can find a short technical explanation [here](https://www.youtube.com/watch?v=pRS9LRBgjYg)
 
@@ -30,7 +29,7 @@ You can find a short technical explanation on container orchestration [here](htt
 # 2. Tutorial
 
 
-The steps of this tutorial are the following: 
+The steps of this tutorial are as follows:
 
 1. [Write OpenAPI definition using SwaggerHub](#22-openapi-definition)  
 2. [Generate the service stubs in Python](#25-generate-python-code)  
@@ -46,20 +45,20 @@ The steps of this tutorial are the following:
 ## 2.1 Prerequisites
 * **Create GitHub Account**: In case you don’t have a GitHub account, follow these instructions to create one: [https://github.com/join](https://github.com/join)
 
-* **Setup Docker Hub**: In case you don't have a Dock Hub account, follow these instructions to create one: [https://hub.docker.com/signup](https://hub.docker.com/signup)
+* **Setup Docker Hub**: If you do not have a Docker Hub account, follow these instructions to create one: [https://hub.docker.com/signup](https://hub.docker.com/signup)
 
 * **SwaggerHub Account:** If you have a GitHub account, you may go to [https://app.SwaggerHub.com/login](https://app.SwaggerHub.com/login) 
 and select 'Log In with GitHub'. Alternatively, you can select to sign up.
 
 * **Docker and Docker Compose:** You can find instructions on how to install Docker here: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
-You may also find a detailed tutorial on Docker here: [https://docker-curriculum.com/](https://docker-curriculum.com/). To test if your installation is running, you may test docker by typing:
+You may also find a detailed tutorial on Docker here: [https://docker-curriculum.com/](https://docker-curriculum.com/). To verify that Docker is installed correctly, run:
     ```shell
     docker run hello-world
     ```
   You can find instructions on how to install Docker Compose here: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/) 
 
 * **PyCharm:** In this tutorial, we will use the PyCharm Integrated Development Environment (IDE). If you have a
-preferred IDE you are free to use it. You can find instructions on how to install PyCharm here: [https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/)
+preferred IDE, you are free to use it. You can find instructions on how to install PyCharm here: [https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/)
 
     If you are using snap, you can type:
     ```shell
@@ -72,7 +71,7 @@ preferred IDE you are free to use it. You can find instructions on how to instal
 
 ## 2.2 OpenAPI Definition
 In this section, we will define a web service interface that will support the Create, Read, Update, Delete (CRUD) pattern 
-for manipulating resources using OpenAPI. To get a more in-depth understanding of Swagger and OpenAPI you may follow this tutorial 
+for manipulating resources using OpenAPI. For a more in-depth understanding of Swagger and OpenAPI, you may follow this tutorial:
 [https://idratherbewriting.com/learnapidoc/openapi_tutorial.html](https://idratherbewriting.com/learnapidoc/openapi_tutorial.html)
 
 Log in to your SwaggerHub account at [https://app.SwaggerHub.com/login](https://app.SwaggerHub.com/login) and select 'Create New' -> 'Create New API'
@@ -99,7 +98,7 @@ $refs must reference a valid location in the document
 $refs must reference a valid location in the document
 ```
 
-Effectively, what is said here is that the "#/components/schemas/Student" is not defined. 
+This indicates that "#/components/schemas/Student" is not defined. 
 You can find more about '$refs' here: [https://swagger.io/docs/specification/using-ref/](https://swagger.io/docs/specification/using-ref/)
 
 
@@ -132,7 +131,7 @@ components:
 ```
 
 
-Define the Student's and GradeRecord object properties. 
+Define the properties of the Student and GradeRecord objects.
 
 The Student properties to define are:
 
@@ -155,7 +154,7 @@ The GradeRecord properties to define are:
 
  **NOTE**
 
- Note which properties are required and which are not. This will affect the services' validation process.
+Note which properties are required and which are optional. This affects the service’s validation process.
  To get more information on the 'required' see: [https://swagger.io/docs/specification/data-models/data-types/](https://swagger.io/docs/specification/data-models/data-types/) in the 
  'Required Properties' Section.
 
@@ -196,7 +195,7 @@ You will need to fill in the proper responses for 200, 400, and 404. More inform
 
 ## 2.5 Generate Python Code
 
-Now that we have the OpenAPI definitions, we can create the server stub on Python. Select 'Codegen'->'Server Stub'->
+Now that we have the OpenAPI definitions, we can generate the Python server stub. Select 'Codegen'->'Server Stub'->
 'python-flask'
 
 <img src="/images/swgub6.png" alt="swagger" width="800"/>
@@ -230,14 +229,14 @@ servers:
   description: SwaggerHub API Auto Mocking
 ```
 
-We need only one line, so the service will always start [http://localhost:8080/tutorial/1.0.0/ui/](http://localhost:8080/tutorial/1.0.0/ui/).
+Keep only one server entry so the service starts at [http://localhost:8080/tutorial/1.0.0/ui/](http://localhost:8080/tutorial/1.0.0/ui/).
 
 
 Open the '\_\_main\_\_.py' file and press Run to start the flask server: 
 
 <img src="/images/pych4.png" alt="swagger" width="800"/>
 
-The UI API of your service will be in [http://localhost:8080/tutorial/1.0.0/ui/](http://localhost:8080/tutorial/1.0.0/ui/) .  
+The API UI will be available at [http://localhost:8080/tutorial/1.0.0/ui/](http://localhost:8080/tutorial/1.0.0/ui/) .  
 
 On the UI select 'POST' and 'Try it out':
 
@@ -258,7 +257,7 @@ In PyCharm if you open the 'default_controller.py' file, you'll see that the met
 
 
 ## 2.5 Git Repository
-Create a private git repository. 
+Create a private Git repository.
 
 ---
 
@@ -280,7 +279,7 @@ git push -u origin main
 
 ## 2.6 Implement the logic
 
-In PyCharm create a package named 'service'. To do that right click on the 'swagger_server' package select 'New'->
+In PyCharm create a package named 'service'. To do this, right-click the 'swagger_server' package select 'New'->
 'Python Package' and enter the name 'service'
 
 <img src="/images/pych7.png" alt="swagger" width="300"/>
@@ -294,7 +293,7 @@ Now you can add the corresponding methods in the 'default_controller.py'. To do 
 from swagger_server.service.student_service import *
 ```
 
-In the 'add_student' method we add the 'add(body)' in the rerun statement, so now the method becomes :
+In the 'add_student' method, add 'add(body)' to the return statement. so now the method becomes :
 
 ```python
 def add_student(body=None):  # noqa: E501
@@ -336,7 +335,7 @@ Now, the 'default_controller.py' just needs to call the service's methods.
 
 ## 2.7 Docker Image 
 
-You can now build your web service as a Docker image DockerHub. To do that, open the Dockerfile 
+You can now build your web service as a Docker image and push it to Docker Hub. To do that, open the Dockerfile 
 in the PyCharm project and change the python version from:
 ```Dockerfile
 FROM python:3.9-alpine
@@ -353,7 +352,7 @@ Open a new terminal in the location of the Dockerfile and type:
 docker build --tag <REPO_NAME>/student_service .
 ```
 
-If the above command is not working you may need to use sudo.
+If the command fails, you may need to use sudo.
 Now test the image:
 
 ```
@@ -413,7 +412,7 @@ The REGISTRY_USERNAME is your **username** for docker hub, NOT your docker hub r
 
 ## 2.9 Deploy Web Service on Kubernetes 
 
-To deploy the web service on a Kubernetes (K8s) cluster you may use Minikube or MicroK8s. 
+To deploy the web service on a Kubernetes (K8s) cluster, you may use Minikube or MicroK8s. 
 
 ### 2.9.0 Minikube
 You can find Minikube installation instructions: 
@@ -549,7 +548,7 @@ image: IMAGE_NAME
 with the name of your image as typed in the docker push command. 
 
 
-If you choose to integrate with an extremal database you will need to add the Deployment and 
+If you choose to integrate with an external database, you will need to add the Deployment and 
 service for MongoDB:
 [mongodb.yaml](sources/mongodb.yaml)
 
@@ -592,8 +591,8 @@ Now your service should be available on http://IP:NODE_PORT/
 ## 3.1 MongoDB Integration
 
 The code provided above uses an internal database called TinyDB. Change the 
-code so that your service saves data in a mongoDB. This includes configuration 
-files for the database endpoint, database names, the Dockerfile itself etc.
+code so that your service saves data in a MongoDB. This includes configuration 
+files for the database endpoint, database names, and the Dockerfile, etc.
 For testing your code locally use this file: 
 [docker-compose.yaml](sources/docker-compose.yaml). Make sure you replace the 
 image with your own.
@@ -623,4 +622,4 @@ Add the new method to the OpenAPI definition, implement the logic, and test it.
 # 3.3 Questions
 
 1. Explain how OpenAPI helped you in the development of the RESTful web service.
-2. In which case the use of TinyDB is preferred over MongoDB and vice versa?
+2. In which cases is TinyDB preferred over MongoDB, and vice versa?
